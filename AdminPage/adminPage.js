@@ -18,7 +18,7 @@ function updateAdminView() {
         <div class="leftPanel">
           <div class="adminActionButtons">
             <div class="actionCol">
-              <button class="adminActionButtons" onclick="addProduct()">Legg til Produkt</button>
+              <button class="adminActionButtons">Legg til Produkt</button>
               <button class="adminActionButtons" onclick="editProduct()">Rediger Produkt</button>
               <button class="adminActionButtons" onclick="deleteProduct()">Slett Produkt</button>
             </div>
@@ -30,13 +30,33 @@ function updateAdminView() {
 
           <div class="inputsCard">
             <div class="formFields">
-              <input type="text" placeholder="Produktnavn" />
+              <input
+                type="text"
+                placeholder="Produktnavn"
+                value="${model.productForm.name}"
+                oninput="model.productForm.name = this.value"
+                />
               <input type="text" placeholder="Kategori" />
               <textarea placeholder="Beskrivelse"></textarea>
-              <input type="text" placeholder="Ingredienser" />
-              <input type="number" placeholder="Pris" />
+              <input
+                type="text"
+                placeholder="Ingredienser"
+                value="${model.productForm.ingredients}"
+                oninput="model.productForm.ingredients = this.value"
+                />
+              <input
+                type="number"
+                placeholder="Pris"
+                value="${model.productForm.price}"
+                oninput="model.productForm.price = this.value"
+                 />
               <div class="qtyAdjustRow">
-                <input type="number" placeholder="Juster Antall" />
+                <input
+                    type="number"
+                    placeholder="Juster Antall"
+                    value="${model.productForm.quantity}"
+                    oninput="model.productForm.quantity = this.value"
+                  />
               </div>
             </div>
 
@@ -45,7 +65,7 @@ function updateAdminView() {
             </div>
 
             <div class="formFooterButtons">
-              <button class="saveBtn">Lagre</button>
+              <button class="saveBtn" onclick="addProduct()">Lagre</button>
               <button class="deleteBtn">Slett</button>
             </div>
           </div>
@@ -125,12 +145,65 @@ function adjustQuantity(prodId, change) {
 //------------------------------------------------------------------------
 //                          Product Management
 //------------------------------------------------------------------------
-function addProduct() {}
+function addProduct() {
+  const newProduct = {
+    id: generateProductID(),
+    name: model.productForm.name,
+    description: model.productForm.description,
+    allergens: [...model.productForm.allergens],
+    options: [...model.productForm.options],
+    price: Number(model.productForm.price),
+    pictures: [...model.productForm.pictures],
+    quantity: Number(model.productForm.quantity),
+    categoryId: model.productForm.categoryId,
+    hasDiscount: model.productForm.hasDiscount,
+    discountAmount: Number(model.productForm.discountAmount),
+  };
+
+  model.productRegister.push(newProduct);
+
+  resetProductForm();
+
+  updateAdminView();
+}
 function editProduct() {}
 function deleteProduct() {}
 
 function addCategory() {}
 function deleteCategory() {}
+
+function resetProductForm() {
+  model.productForm = {
+    name: "",
+    description: "",
+    ingredients: "",
+    allergens: [],
+    options: [],
+    price: 0,
+    pictures: [],
+    quantity: 0,
+    categoryId: "",
+    hasDiscount: false,
+    discountAmount: 0,
+  };
+}
+
+//------------------------------------------------------------------------
+//                          ID Management
+//------------------------------------------------------------------------
+
+function generateProductID() {
+  if (model.productRegister.length === 0) {
+    return 1;
+  }
+
+  const idArray = model.productRegister.map((product) => product.id);
+
+  const highestId = Math.max(...idArray);
+
+  console.log(`Product added with id ${highestId + 1}`);
+  return highestId + 1;
+}
 
 //------------------------------------------------------------------------
 //                          Hours Management

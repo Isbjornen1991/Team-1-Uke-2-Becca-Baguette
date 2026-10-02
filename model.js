@@ -44,6 +44,7 @@ const model = {
   productForm: {
     name: "",
     description: "",
+    ingredients: "",
     allergens: [],
     options: [],
     price: 0,
