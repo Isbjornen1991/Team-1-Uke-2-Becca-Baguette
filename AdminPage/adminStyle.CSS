@@ -1,0 +1,60 @@
+.adminHeader {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 500px;
+  width: 300px;
+}
+
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 500px;
+  width: 300px;
+}
+
+.centralArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.previewButtonArea {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
+
+.adminButtons {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
+
+.inputsArea {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
+
+.productImgs {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
+
+.previewArea {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
+
+.productsOverviewArea {
+  border: 0.1cqw solid #acacac;
+  border-radius: 0.2rem;
+}
