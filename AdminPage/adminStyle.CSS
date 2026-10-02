@@ -1,60 +1,232 @@
+/* Page Container & Global Pill Borders */
+.adminContainer {
+  padding: 16px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+/* Base Pill Styling matching wireframe sketches */
+button,
+input,
+textarea,
+.headerTitleCard,
+.stockPill,
+.previewHeader,
+.stockHeaderBox,
+.hoursSection,
+.imageUploadBox {
+  border: 2px solid #222;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+button {
+  background-color: rgb(192, 242, 248);
+}
+
+/* TOP HEADER */
 .adminHeader {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-.leftPanel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 500px;
-  width: 300px;
+.headerTitleCard {
+  flex-grow: 1;
+  max-width: 500px;
+  text-align: center;
 }
 
-.rightPanel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 500px;
-  width: 300px;
+.headerTitleCard h1 {
+  margin: 0;
+  font-size: 20px;
 }
 
+.previewSiteBtn {
+  padding: 14px 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 3-COLUMN MAIN LAYOUT */
 .centralArea {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  gap: 24px;
+  align-items: flex-start;
 }
 
-.previewButtonArea {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+.leftPanel {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.adminButtons {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+.middlePanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
-.inputsArea {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+.rightPanel {
+  flex: 1;
 }
 
-.productImgs {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+/* LEFT PANEL - ACTION BUTTONS */
+.adminActionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
 }
 
+.actionCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* LEFT PANEL - FORM */
+.inputsCard {
+  border: 2px solid #222;
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 12px;
+  position: relative;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formFields input,
+.formFields textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.imageUploadBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 160px;
+  background-color: #fafafa;
+}
+
+.formFooterButtons {
+  grid-column: span 2;
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.saveBtn,
+.deleteBtn {
+  min-width: 90px;
+  cursor: pointer;
+}
+
+/* MIDDLE PANEL - PREVIEW & HOURS */
 .previewArea {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.previewHeader {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.hoursSection {
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hoursSection h3 {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.hoursButtonsRow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.hoursCardBtn {
+  height: 80px;
+  width: 110px;
+  cursor: pointer;
+}
+
+/* RIGHT PANEL - STOCK LIST OVERVIEW */
 .productsOverviewArea {
-  border: 0.1cqw solid #acacac;
-  border-radius: 0.2rem;
+  border: 2px solid #222;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stockHeaderBox {
+  text-align: center;
+  font-weight: bold;
+}
+
+.stockListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stockRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.namePill {
+  flex: 1.5;
+  text-align: center;
+}
+
+.qtyPill {
+  flex: 1;
+  text-align: center;
+}
+
+.arrowBtnGroup {
+  display: flex;
+  gap: 4px;
+}
+
+.arrowBtn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.searchProductsBtn {
+  margin-top: 8px;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
 }
