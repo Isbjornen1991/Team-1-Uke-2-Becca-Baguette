@@ -47,11 +47,10 @@ function updateAdminView() {
     </div>
     </div>
     <div class="previewArea">
-        <div>${productRenderer()}</div>
+        <div>${productRenderer(1)}</div>
     </div>
     
   `;
 }
 
 //Controller
-// function productRenderer() {}

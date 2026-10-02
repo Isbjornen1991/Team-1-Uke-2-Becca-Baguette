@@ -1,7 +1,17 @@
-function productRenderer() {
+function productRenderer(productID) {
+  const product = model.productRegister.find((p) => p.id === productID);
   let html = "";
 
-  html = /*HTML*/ `<div>Here is a product</div>`;
+  if (!product) {
+    return (html = /*HTML*/ `<div>Produktet ble ikke funnet.</div>`);
+  }
 
-  return html;
+  const allergenList = product.allergens.join(", ");
+
+  return (html = /*HTML*/ `<div class="productCard">
+    <div>${product.name}</div>
+    <div>${product.price}</div>
+    <div>${product.description}</div>
+    <div>${allergenList}</div>
+    <button>Legg til i Handlekurv</button>`);
 }
